@@ -1,0 +1,17 @@
+{
+    "name": "box-drive-server",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+      "start": "nodemon server/index.js"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+      "body-parser": "^1.18.3",
+      "express": "^4.16.3",
+      "isomorphic-unfetch": "^2.1.1",
+       "mongoose": "^5.2.9"      
+    }
+  }
