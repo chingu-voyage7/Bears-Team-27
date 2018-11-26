@@ -88,7 +88,7 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 4);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -109,7 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! isomorphic-unfetch */ "isomorphic-unfetch");
 /* harmony import */ var isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2__);
 
-var _jsxFileName = "D:\\box-drive\\frontend\\pages\\my-drive.js";
+var _jsxFileName = "D:\\Bears-Team-27\\frontend\\pages\\my-drive.js";
 
 function _typeof(obj) { if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
 
@@ -125,18 +125,65 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } return _assertThisInitialized(self); }
 
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+
 function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); if (superClass) _setPrototypeOf(subClass, superClass); }
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
-function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 
 
+var MyDriveItem = function MyDriveItem(props) {
+  return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    style: {
+      width: '180px',
+      height: '180px',
+      borderRadius: '10px',
+      border: '1px solid grey',
+      position: 'relative',
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      padding: '5px',
+      margin: '5px',
+      backgroundColor: '#3633FE'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 5
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+    style: {
+      position: 'absolute',
+      bottom: '0',
+      fontSize: '1rem'
+    },
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 20
+    },
+    __self: this
+  }, props.name), props.thumbnail ? react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("a", {
+    href: props.secureUrl,
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 24
+    },
+    __self: this
+  }, react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("img", {
+    src: props.thumbnail,
+    title: "Download..",
+    __source: {
+      fileName: _jsxFileName,
+      lineNumber: 25
+    },
+    __self: this
+  })) : null);
+};
 
 var MyDrive =
 /*#__PURE__*/
@@ -144,42 +191,47 @@ function (_React$Component) {
   _inherits(MyDrive, _React$Component);
 
   function MyDrive() {
-    var _getPrototypeOf2;
-
-    var _this;
-
     _classCallCheck(this, MyDrive);
 
-    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
-      args[_key] = arguments[_key];
-    }
-
-    _this = _possibleConstructorReturn(this, (_getPrototypeOf2 = _getPrototypeOf(MyDrive)).call.apply(_getPrototypeOf2, [this].concat(args)));
-
-    _defineProperty(_assertThisInitialized(_assertThisInitialized(_this)), "state", {
-      resources: []
-    });
-
-    return _this;
+    return _possibleConstructorReturn(this, _getPrototypeOf(MyDrive).apply(this, arguments));
   }
 
   _createClass(MyDrive, [{
-    key: "componentDidMount",
-    value: function componentDidMount() {
-      this.setState({
-        resources: this.props.resources
-      });
-    }
-  }, {
     key: "render",
+
+    /*componentDidMount() {
+      this.setState({
+        resources: this.props.resources,
+      });
+    }*/
     value: function render() {
+      var resources = this.props.resources;
       return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement("div", {
+        style: {
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'space-evenly',
+          marginTop: '20px',
+          flexWrap: 'wrap'
+        },
         __source: {
           fileName: _jsxFileName,
-          lineNumber: 18
+          lineNumber: 48
         },
         __self: this
-      }, "MyDrive");
+      }, resources && resources.length > 0 && resources.map(function (item) {
+        return react__WEBPACK_IMPORTED_MODULE_1___default.a.createElement(MyDriveItem, {
+          key: item._id,
+          secureUrl: item.secureUrl,
+          name: item.name,
+          thumbnail: item.thumbnail,
+          __source: {
+            fileName: _jsxFileName,
+            lineNumber: 61
+          },
+          __self: this
+        });
+      }));
     }
   }], [{
     key: "getInitialProps",
@@ -192,22 +244,23 @@ function (_React$Component) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.next = 2;
+                console.log('hello at mydrive');
+                _context.next = 3;
                 return isomorphic_unfetch__WEBPACK_IMPORTED_MODULE_2___default()('http://localhost:3000/api/resources/');
 
-              case 2:
+              case 3:
                 res = _context.sent;
-                console.dir('hello');
                 _context.next = 6;
                 return res.json();
 
               case 6:
                 resources = _context.sent;
+                console.log("Show data fetched. Count: ".concat(resources.length));
                 return _context.abrupt("return", {
                   resources: resources
                 });
 
-              case 8:
+              case 9:
               case "end":
                 return _context.stop();
             }
@@ -228,7 +281,7 @@ function (_React$Component) {
 
 /***/ }),
 
-/***/ 4:
+/***/ 3:
 /*!*********************************!*\
   !*** multi ./pages/my-drive.js ***!
   \*********************************/
